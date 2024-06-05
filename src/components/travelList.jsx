@@ -6,11 +6,10 @@ function travelList() {
   
 
   function handleDeleteTravels(travelId) {
-    const filteredTravels = travels.filter((travel) => travels.id !== travelId);
+    const filteredTravels = travels.filter((travel) => travel.id !== travelId);
     setTravels(filteredTravels);
   }
 
-  const [displayTravels, setDisplayTravels] = useState(true);
 
 return (
     {travels.map((travel) => (
@@ -25,10 +24,10 @@ return (
           {travel.totalCost <= 350 ? <p>Great Deal</p> : <p></p>}
           {travel.totalCost >= 1500 ? <p>Premium</p> : <p></p>}
           {travel.allInclusive ? <p>All-Inclusive</p> : <p></p>}
-          <button onClick={() => handleDeleteTravels(travels.id)}></button>
+          <button onClick={() => handleDeleteTravels(travel.id)}></button>
       </article>
     ))}
-  </>
+
 )
 }
 
